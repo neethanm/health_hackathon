@@ -1,0 +1,116 @@
+<html>
+    <head><title>ARACHNE</title>
+        
+
+<style>
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:180px;
+  margin-bottom:auto;
+}
+</style>
+
+<script>
+   var x= document.querySelector("#input")
+    
+    if((x.value )<18){
+        alert("YOU ARE UNDER THE AGE LIMIT");
+
+    }
+</script>
+        
+    </head>
+   
+
+    <body style="background-image:url('back.png')";>
+        
+        <form method="get" action="#" target="_blank" >
+            <table border="2px solid black" style="background-color: rgb(10, 0, 0) ;width: 600px;height:400px;table-layout: auto ;text-align: left; color: white;" class="center">
+                <caption style="font-size: 40px;color:antiquewhite"><b>DONOR DETAILS</b></caption>
+                <tr>
+                    <th>First Name:</th>
+                <td><input type="text" name="uname" maxlength="30" placeholder="First Name" size="45" required /></td></tr>
+                <tr>
+                    <th>Last Name:</th>
+                    <td><input type="text" name="uname" maxlength="30" placeholder="Last Name" size="45" /></td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <td><input type="radio" name ="uname" value="Male" required/>Male
+                        <input type="radio" name ="uname" value="Female" required/>Female
+                        <input type="radio" name ="uname" value="others" required/>Others
+
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email Id:</th>
+                    <td><input type="email" name="uemail" placeholder="example@gmail.com" size="45" required/></td>
+                </tr>
+                <tr>
+                    <th>Mobile:</th> 
+                    <td><input type="tel" name="uemail" maxlength="10" size="45" required/></td>
+                </tr>
+
+                <tr>
+                    <th> Age:</th>
+                    <td><input id="input" type="text" required/></th></td>
+                    
+                </tr>
+                <tr>
+                    <th>ADHAR NUMBER</th>
+                    <td><input type="text" placeholder="xxxx xxxx xxxx" pattern="[2-9]{1}[0-9]{3} [0-9]{4} [0-9]{4}" required/></td>
+                    
+                </tr>
+                <tr>
+                    <th>ADDRESS</th>
+                    <td><textarea placeholder="enter your current adress" cols="40" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <th>Blood group:</th>
+                    <td>
+                        <select required>
+                            <option value="Select your blood group" name="uselect">Select Your Blood Group</option>
+                            <option value="O-" name="uselect">O-</option>
+                            <option value="O+" name="uselect">O+</option>
+                            <option value="A-" name="uselect">A-</option>
+                            <option value="A+" name="uselect">A+</option>
+                            <option value="B-" name="uselect">B-</option>
+                            <option value="B+" name="uselect">B+</option>
+                            <option value="AB-" name="uselect">AB-</option>
+                            <option value="AB+" name="uselect">AB+</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    
+                    <td colspan="2"><input type="checkbox" value="1" required/>I have verified above Information are correct</td>
+                </tr>
+
+                <tr>
+                    
+                    
+                   <th> <input type="submit" value="submit " onclick= "display_alertmsg()"/></th>
+                    <td><input type="reset" value="reset"/></td>
+                     
+                 
+                
+                    
+            </tr>
+                  
+
+                
+
+                
+
+            </table>
+           
+        
+           
+        
+        </form>
+
+    
+    </body>
+</html>

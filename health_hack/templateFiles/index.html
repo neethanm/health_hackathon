@@ -1,0 +1,130 @@
+<html lang="en">
+    <head>
+        <title style="color: brown">CSS Grid</title>
+        <meta name="author" content="Zaur">
+        <meta descryption content="Presentation of website">
+        <meta name="keywords" content="technology, cyber security, software">
+        <meta http-equiv="refresh" content="30">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="staticFiles/main.css">
+        <script>
+            function setFormMessage(formElement, type, message){
+				const messageElement = formElement.querySelector(".form-message");
+				
+				messageElement.textContent = message;
+				messageElement.classList.remove("form-message-success", "form-message-error");
+				messageElement.classList.add('form-message-${type}');
+			}
+			
+			
+			function setInputError(inputElement, message) {
+				inputElement.classList.add("form-input-error-message");
+				inputElement.parentElement.querySelector(".form-input-error-message").textContent = message;
+			}
+			
+			
+			function clearInputError(inputElement){
+				inputElement.classList.remove("form-input-error-message");
+				inputElement.parentElement.querySelector(".form-input-error-message").textContent = "";
+			}
+			
+			document.addEventListener("DOMContentLoaded", () => {
+		
+    const loginForm = document.querySelector("#login");
+    const createAccountForm = document.querySelector("#createAccount");
+	
+	document.querySelector("#linkCreateAccount").addEventListener("click", e => {
+		e.preventDefault();
+		loginForm.classList.add("form-hidden");
+		createAccountForm.classList.remove("form-hidden");
+	});
+	
+	document.querySelector("#linkLogin").addEventListener("click", e => {
+		e.preventDefault();
+		loginForm.classList.remove("form-hidden");
+		createAccountForm.classList.add("form-hidden");
+	});
+				
+				loginForm.addEventListener("submit", e => {
+					e.preventDefault();
+					
+					//Perform your AJAX/Fetch login
+					
+					setFormMessage(loginForm, "error", "Invalid username/password combination");
+	});
+				
+				document.querySelectorAll(".form-input").forEach(inputElement => {
+					inputElement.addEventListener("blur", e => {
+					if (e.target.id === "signupUsername" && e.target.value.length > 0 && e.target.value.length < 10) {
+						setInputError(inputElement, "Username must be at least 10 characters in length");
+						}
+					});
+					
+					inputElement.addEventListener("input", e => {
+						clearInputError(inputElement);
+					});
+				});
+});
+        </script>
+    </head>
+    <body class ="bg" >
+		
+
+		<div class="container">
+			
+			<form class="form" id="login" name="details">
+				<h1 class="form-title">Login</h1>
+				<!-- <div class="form-message form-message-error"></div> -->
+				<div class="form-input-group">
+					<input type="text" class="form-input" autofocus placeholder="Username or email">
+					<!-- <div class="form-input-error-message"></div> -->
+				</div>
+				<div class="form-input-group">
+					<input type="password" class="form-input" autofocus placeholder="Password">
+					<div class="form-input-error-message"></div>
+				</div>
+					<button type="submit" class="form-button">Continue</button>
+				<p class="form-text">
+					<a href="#" class="form-link">Forgot your password?</a>
+				</p>
+				<p class="form-text">
+					<a href="#" id="linkCreateAccount" class="form-link">Don't have an account? Create account</a>
+				</p>
+			</form>
+			
+			<form class="form form-hidden" id="createAccount">
+				<h1 class="form-title">Create Account</h1>
+				<div class="form-message form-message-error"></div>
+				<div class="form-input-group">
+					<input type="text" id="signupUsername" class="form-input" autofocus placeholder="Username" name="uname" required>
+					<div class="form-input-error-message"></div>
+				</div>
+				<div class="form-input-group">
+					<input type="email" class="form-input" autofocus placeholder="Email Address" name="emailadd" required>
+					<div class="form-input-error-message"></div>
+				</div>
+				<div class="form-input-group">
+					<input type="password" class="form-input" id="pass" autofocus placeholder="Password" name="passwd" required>
+					<div class="form-input-error-message"></div>
+				</div>
+				<div class="form-input-group">
+					<input type="password" class="form-input " id="confirm" autofocus placeholder="Confirm password" name="cpasswd" required>
+					<div class="form-input-error-message"></div>
+				</div>
+				<button class="form-button" type="submit">Continue</button>
+				<p class="form-text">
+					<a href="#" id="linkLogin" class="form-link">Already have an account? Sign in</a>
+				</p>
+			</form>
+		</div>
+		
+		<footer>
+			&copy;
+			<code>
+				<h3>Created by <span>Drunk Bits</span></h3>
+			</code>
+		</footer>
+    </body>
+	
+</html
